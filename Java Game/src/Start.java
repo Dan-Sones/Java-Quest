@@ -8,9 +8,9 @@ public class Start{
     void Play(){
         Scanner reader = new Scanner(System.in);
         System.out.println("Please Enter your name..");
-        Player One = new Player();
-        One.Name = reader.nextLine();
-        System.out.println("Welcome to Java Quest " + One.Name);
+        Player POne = new Player();
+        POne.Name = reader.nextLine();
+        System.out.println("Welcome to Java Quest " + POne.Name);
         System.out.println("Thank you For Trying out My game :)");
         System.out.println("");
         System.out.println("Would you like to view the tutorial?");
@@ -29,8 +29,8 @@ public class Start{
         }
 
         //Set All Default Values
-        One.setHealthPoints(100);
-        One.setArmourPoints(0);
+        POne.setHealthPoints(100);
+        POne.setArmourPoints(0);
 
         int i = 1;
         while (i > 0) {
@@ -44,14 +44,14 @@ public class Start{
 
             // Add 100 armour Points
             if (UserChoice == 1) {
-                One.setArmourPoints(100);
-                System.out.println("Your armour is Now At " + One.getArmourPoints() + "!");
+                POne.setArmourPoints(100);
+                System.out.println("Your armour is Now At " + POne.getArmourPoints() + "!");
                 i = i - 1;
             }
             // Add 100 extra Health
             else if (UserChoice == 2) {
-                One.setHealthPoints(200);
-                System.out.println("Your Health is now at " + One.getHealthPoints() + "!" );
+                POne.setHealthPoints(200);
+                System.out.println("Your Health is now at " + POne.getHealthPoints() + "!" );
                 i = i - 1;
             }
             //Re-loop untill a valid item is taken
@@ -60,7 +60,14 @@ public class Start{
 
             }
         }//End of while
-
+        System.out.println("");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        RandomEvent E1 = new RandomEvent();
+        E1.RandomNumber(POne);
 
 
         } //End of void play()

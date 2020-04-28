@@ -31,4 +31,21 @@ public class Player {
     public void setInventory(String[] Inven) {
         Inventory = Inven;
     }
+    // Check Health method
+    void checkHealth(){
+        if (getHealthPoints() == 0){
+            System.out.println("You Have Died!");
+            System.out.println("The game will quit in 5 seconds");
+            try
+            {
+                Thread.sleep(5000);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+            System.exit(1);
+        }
+    }
 }
+

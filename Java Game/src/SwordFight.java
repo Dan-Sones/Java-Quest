@@ -13,7 +13,13 @@ public class SwordFight {
         One.SetEnemyHP(rand);
         //Ask the user what they want to do
         boolean loop = true;
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
         while(loop == true) {
+            System.out.println("");
             System.out.println("");
             System.out.println(POne.Name + "! An EnemyKnight has Appeared!");
             System.out.println("What do you want to do!?");
@@ -40,12 +46,13 @@ public class SwordFight {
                     break;
                 case 3:
                     System.out.println("Running away!!!");
-                    RandomEvent two = new RandomEvent();
-                    two.RandomNumber(POne);
+                    Neutral Runaway = new Neutral();
+                    Runaway.town(POne);
                     break;
                 case 4:
                     System.out.println("Your Health is : " + POne.getHealthPoints());
                     System.out.println("Your Armour is: " + POne.getArmourPoints());
+                    break;
             }
         }
 

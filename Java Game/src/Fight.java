@@ -7,25 +7,25 @@ public class Fight {
         Scanner reader = new Scanner(System.in);
         int x = 5;
         // Setup enemy knight
-        Enemy Jeff = new Enemy();
-        Jeff.SetEnemyHP(100);
+        Enemy Hostile = new Enemy();
+        Hostile.SetEnemyHP(100);
 
-        while (Jeff.GetEnemyHP() > 0 && POne.getHealthPoints() > 0) {
+        while (Hostile.GetEnemyHP() > 0 && POne.getHealthPoints() > 0) {
             //ENEMYS CHOICE
             //Generate a random number from 1 to 100
             int min = 1;
             int max = 100;
             int rand = (int) (Math.random() * (max - min + 1) + min);
             // use that random number to decide what the enemy will do
-            if (rand > 0 && rand < 5) { //5% chance
+            if (rand > 0 && rand < 2) { //5% chance
                 System.out.println("The Enemy Knight cut off your head with one clean stroke!");
                 System.out.println("GAME OVER!");
                 POne.setHealthPoints(0);
                 POne.setArmourPoints(0);
-                System.exit(0); // quits the program
+                POne.checkHealth();// quits the program
             }
             // Enemy misses
-            else if (rand > 5 && rand < 25) { //35% chance
+            else if (rand > 2 && rand < 25) { //35% chance
                 System.out.println("");
                 System.out.println("The Enemy missed!");
             }
@@ -48,7 +48,7 @@ public class Fight {
                 else {
                     POne.setHealthPoints(POne.getHealthPoints() - damage);
                 }
-
+            POne.checkHealth(); // see if player is dead
             } // else if
             try {
                 Thread.sleep(3000);
@@ -75,7 +75,7 @@ public class Fight {
                 if (rand2 > 0 && rand2 < 5) { //5% chance
                     System.out.println("You Cut off the enemys Head");
                     System.out.println("You Win this fight!");
-                    Jeff.SetEnemyHP(0);
+                    Hostile.SetEnemyHP(0);
 
                 }
                 // player misses
@@ -84,25 +84,29 @@ public class Fight {
                 }
                 // Player hits
                 else if (rand2 > 25 && rand2 <= 100) { //60% chance
-                    Jeff.SetEnemyHP(Jeff.GetEnemyHP() - 15);
+                    Hostile.SetEnemyHP(Hostile.GetEnemyHP() - 15);
                     System.out.println("Good Hit!");
 
 
                 }
             }// else if
 
-            if(Jeff.GetEnemyHP() == 0){
-                System.out.println("You Won!");
+            if(Hostile.GetEnemyHP() == 0){
+                System.out.println("");
+                System.out.println("");
+                System.out.println("You Won the Sword Fight!");
+                System.out.println("");
+                System.out.println("");
             }
 
             //sleep for 3 seconds
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+
         }// while
-        System.out.println("NOTHING IS DEVELOPED BEYOND THIS POINT");
+        Hostile.SetEnemyHP(100);
+        Neutral GoThere = new Neutral();
+        GoThere.town(POne);
+
+
 
     } //method
 
