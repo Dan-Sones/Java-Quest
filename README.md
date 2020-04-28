@@ -2,6 +2,13 @@
 
 Thanks for Checking out my <strong>WIP</strong> console based game made in java.
 
+<h3>How to Play</h3>
+<ul>
+  <li>To play Java quest download all the files and Run <strong>game.java</strong>.</li>
+  <li>At somepoint I will host a live version online</li>
+</ul?
+
+
 <h3>Why this Project?</h3>
 
 <ul>
