@@ -1,21 +1,15 @@
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.sql.SQLOutput;
 
 public class Neutral {
     int FriendOrFoe;
     int armourOrHealth;
     int count = 100;
     int randomChoice;
-    void town(Player POne) {
+    void town(Player POne, Wait pause) {
         // Tell Player They have entered a nearby town
         System.out.println("");
         System.out.println("You have entered a town");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        pause.Wait2();
 
         // Generate a random number out of either one or two
         int min = 1;
@@ -41,7 +35,7 @@ public class Neutral {
 
                 } else if (armourOrHealth == 2 && POne.getArmourPoints() < 100) {
                     System.out.println("They Offer You a new suit of armour");
-                    while (count > 0 && POne.getArmourPoints() <= 100) {
+                    while (count > 0 && POne.getArmourPoints() < 100) {
                         POne.setArmourPoints(POne.getArmourPoints() + 1);
                         count = count - 1;
                     }
@@ -57,11 +51,7 @@ public class Neutral {
                     Thread.currentThread().interrupt();
                 }
                 System.out.println("You start to Run away");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                pause.Wait2();
                 random = (int) (Math.random() * (max - min + 1) + min); // Generates a random number between 1 and 2
                 switch (random) {
                     case 1:
@@ -86,20 +76,15 @@ public class Neutral {
                         break;
                 }// end of switch
 
-
+        }
                 System.out.println("");
                 System.out.println("You Contnue Your Adventure...");
 
 
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
+                pause.Wait2();
 
                 RandomEvent E2 = new RandomEvent();
-                E2.RandomNumber(POne);
-        }
+                E2.RandomNumber(POne, pause);
 
 
     }

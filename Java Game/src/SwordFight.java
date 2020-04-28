@@ -2,7 +2,7 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class SwordFight {
-    void fight(Player POne){
+    void fight(Player POne, Wait pause){
         Scanner reader = new Scanner(System.in);
         //Create a new enemy
         Enemy One = new Enemy();
@@ -13,11 +13,7 @@ public class SwordFight {
         One.SetEnemyHP(rand);
         //Ask the user what they want to do
         boolean loop = true;
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        pause.Wait2();
         while(loop == true) {
             System.out.println("");
             System.out.println("");
@@ -37,7 +33,7 @@ public class SwordFight {
                     System.out.println("");
                     Fight start = new Fight();
                     loop = false;
-                    start.FightMethod(POne);
+                    start.FightMethod(POne, pause);
                     break;
                 case 2:
                     //NOT DEVELOPED YET
@@ -47,7 +43,7 @@ public class SwordFight {
                 case 3:
                     System.out.println("Running away!!!");
                     Neutral Runaway = new Neutral();
-                    Runaway.town(POne);
+                    Runaway.town(POne, pause);
                     break;
                 case 4:
                     System.out.println("Your Health is : " + POne.getHealthPoints());

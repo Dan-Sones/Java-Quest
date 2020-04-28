@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Fight {
-    void FightMethod(Player POne) {
+    void FightMethod(Player POne, Wait pause) {
         Scanner reader = new Scanner(System.in);
         int x = 5;
         // Setup enemy knight
@@ -50,11 +50,7 @@ public class Fight {
                 }
             POne.checkHealth(); // see if player is dead
             } // else if
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+            pause.Wait2();
             //PLAYERS CHOICE
             System.out.println("");
             System.out.println(POne.Name + " What do you want to do?");
@@ -104,7 +100,7 @@ public class Fight {
         }// while
         Hostile.SetEnemyHP(100);
         Neutral GoThere = new Neutral();
-        GoThere.town(POne);
+        GoThere.town(POne, pause);
 
 
 

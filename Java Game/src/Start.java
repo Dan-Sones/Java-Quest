@@ -9,6 +9,7 @@ public class Start{
         Scanner reader = new Scanner(System.in);
         System.out.println("Please Enter your name..");
         Player POne = new Player();
+        Wait pause = new Wait();
         POne.Name = reader.nextLine();
         System.out.println("Welcome to Java Quest " + POne.Name);
         System.out.println("Thank you For Trying out My game :)");
@@ -61,13 +62,9 @@ public class Start{
             }
         }//End of while
         System.out.println("");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        pause.Wait2();
         RandomEvent E1 = new RandomEvent();
-        E1.RandomNumber(POne);
+        E1.RandomNumber(POne, pause);
 
 
         } //End of void play()

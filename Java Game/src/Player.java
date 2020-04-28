@@ -34,6 +34,9 @@ public class Player {
     // Check Health method
     void checkHealth(){
         if (getHealthPoints() == 0){
+            Art Gameover = new Art();
+            Gameover.GameOver();
+            System.out.println("");
             System.out.println("You Have Died!");
             System.out.println("The game will quit in 5 seconds");
             try
