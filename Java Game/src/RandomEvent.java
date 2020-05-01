@@ -15,26 +15,25 @@ public class RandomEvent {
 
 
     //generate a random Number
-    void RandomNumber(Player POne, Wait pause){
+    void RandomNumber(Player POne, Wait pause) {
 
         int min = 1;
-        int max = 2;
+        int max = 3;
         int rand = (int) (Math.random() * (max - min + 1) + min);
         setRandom(rand);
 
-        if (rand == 1){
+        if (rand == 1) {
             // rescue
             Rescue rescue = new Rescue();
             rescue.RescuePrincess(POne, pause);
-        }
-        else if(rand == 2){
+        } else if (rand == 2) {
             countFights = countFights + 1;
             SwordFight sword = new SwordFight();
             sword.fight(POne, pause);
-        }
-        else if(rand == 3){
-            //NOT DEVELOPED YET
-            System.out.println("Dragon");
+        } else if (rand == 3) {
+            DragonBattle Dragon = new DragonBattle();
+            Dragon.DragonAttack(POne, pause);
+
         }
 
     }

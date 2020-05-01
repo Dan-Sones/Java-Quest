@@ -1,5 +1,6 @@
 import java.sql.SQLOutput;
 import java.util.Scanner;
+
 public class Princess {
     Scanner reader = new Scanner(System.in);
     int min = 1;
@@ -10,26 +11,27 @@ public class Princess {
     int answer;
     String UserChoice;
     int OutOrIn;
-    void StartRescue(Player POne, Wait pause){
+
+    void StartRescue(Player POne, Wait pause) {
         System.out.println("");
         System.out.println("As You Walk closer and closer to the tower you notice that there is a moat of lava surrounding the tower!");
         System.out.println("Do you try and jump over it?");
         UserChoice = reader.nextLine();
-        if (UserChoice.equals("Yes") || UserChoice.equals("yes")){
+        if (UserChoice.equals("Yes") || UserChoice.equals("yes")) {
             System.out.println("You Run Towards the lava and jump at the last moment!");
             System.out.println("");
             //Dies - 25% Chance
-            if(rand > 0 && rand < 25){
+            if (rand > 0 && rand < 25) {
                 System.out.println("Oh no You fell in!!!");
                 POne.setHealthPoints(0);
                 POne.setArmourPoints(0);
                 POne.checkHealth();
             }
             //Alive - 75% chance
-            else if(rand > 25 && rand <= 100){
+            else if (rand > 25 && rand <= 100) {
                 System.out.println("");
                 System.out.println("You made it across!");
-                System.out.println("You Run over to the stairs.. ");
+                System.out.println("You reach the stairs.. ");
                 pause.Wait1();
                 System.out.println(".. and begin to run up ");
                 pause.Wait1();
@@ -38,7 +40,7 @@ public class Princess {
                 System.out.println("");
                 //make random numbers for questions and ask questions
                 int counter = 1;
-                while (counter <= 3){
+                while (counter <= 3) {
                     max = 12;
                     min = 1;
                     rand1 = (int) (Math.random() * (max - min + 1) + min);
@@ -46,11 +48,10 @@ public class Princess {
                     System.out.println(counter + ".) " + rand1 + "x" + rand2 + " ?");
                     System.out.println("Type your answer");
                     answer = Integer.parseInt(reader.nextLine());
-                    if(answer == rand1 * rand2 ){
+                    if (answer == rand1 * rand2) {
                         System.out.println("Correct!");
                         counter = counter + 1;
-                    }
-                    else {
+                    } else {
                         System.out.println("Incorrect!");
                     }
                 }// end of while
@@ -64,7 +65,7 @@ public class Princess {
                 System.out.println("2.) Follow the stairs to the lava moat");
                 OutOrIn = Integer.parseInt(reader.nextLine());
 
-                switch (OutOrIn){
+                switch (OutOrIn) {
                     case 1:
                         System.out.println("You jump while the Princess clutches onto you...");
                         pause.Wait2();
@@ -93,14 +94,10 @@ public class Princess {
                 }
 
 
-
-
-
-
             }// end of survived if
 
 
-        } else if(UserChoice.equals("no") || UserChoice.equals("No")){
+        } else if (UserChoice.equals("no") || UserChoice.equals("No")) {
             pause.Wait1();
             System.out.println("That's the only way up!");
             System.out.println("You abandon the rescue and head to the nearest town");

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Enemy {
     private String EnemyName;
     private int enemyHP;

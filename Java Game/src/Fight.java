@@ -48,7 +48,7 @@ public class Fight {
                 else {
                     POne.setHealthPoints(POne.getHealthPoints() - damage);
                 }
-            POne.checkHealth(); // see if player is dead
+                POne.checkHealth(); // see if player is dead
             } // else if
             pause.Wait2();
             //PLAYERS CHOICE
@@ -87,7 +87,7 @@ public class Fight {
                 }
             }// else if
 
-            if(Hostile.GetEnemyHP() == 0){
+            if (Hostile.GetEnemyHP() == 0) {
                 System.out.println("");
                 System.out.println("");
                 System.out.println("You Won the Sword Fight!");
@@ -101,7 +101,6 @@ public class Fight {
         Hostile.SetEnemyHP(100);
         Neutral GoThere = new Neutral();
         GoThere.town(POne, pause);
-
 
 
     } //method

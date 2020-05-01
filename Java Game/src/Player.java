@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Player {
     String Name;
     private int HealthPoints;
@@ -31,20 +32,18 @@ public class Player {
     public void setInventory(String[] Inven) {
         Inventory = Inven;
     }
+
     // Check Health method
-    void checkHealth(){
-        if (getHealthPoints() == 0){
+    void checkHealth() {
+        if (getHealthPoints() == 0) {
             Art Gameover = new Art();
             Gameover.GameOver();
             System.out.println("");
             System.out.println("You Have Died!");
             System.out.println("The game will quit in 5 seconds");
-            try
-            {
+            try {
                 Thread.sleep(5000);
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             System.exit(1);

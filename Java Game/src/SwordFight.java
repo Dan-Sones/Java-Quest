@@ -37,13 +37,14 @@ public class SwordFight {
                     break;
                 case 2:
                     //NOT DEVELOPED YET
-                    System.out.println("SHOUT STUFF");
+                    System.out.println("You taunt the enemy and run away!");
+                    Neutral Runaway = new Neutral();
                     loop = false;
                     break;
                 case 3:
                     System.out.println("Running away!!!");
-                    Neutral Runaway = new Neutral();
-                    Runaway.town(POne, pause);
+                    Neutral Runaway2 = new Neutral();
+                    Runaway2.town(POne, pause);
                     break;
                 case 4:
                     System.out.println("Your Health is : " + POne.getHealthPoints());
